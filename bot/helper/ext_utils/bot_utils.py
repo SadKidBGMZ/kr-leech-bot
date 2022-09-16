@@ -28,16 +28,16 @@ COUNT = 0
 PAGE_NO = 1
 
 class MirrorStatus:
-    STATUS_UPLOADING = "Uploading...⬘"
-    STATUS_DOWNLOADING = "Downloading...⬙"
-    STATUS_CLONING = "Cloning...♻️"
-    STATUS_WAITING = "Queued...💤"
-    STATUS_PAUSED = "Paused...⛔️"
-    STATUS_ARCHIVING = "Archiving...🔐"
-    STATUS_EXTRACTING = "Extracting...📂"
-    STATUS_SPLITTING = "Splitting...✂️"
-    STATUS_CHECKING = "CheckingUp...📝"
-    STATUS_SEEDING = "Seeding...🌧"
+    STATUS_UPLOADING = "📤 Uploading..."
+    STATUS_DOWNLOADING = "📥 Downloading..."
+    STATUS_CLONING = "🗂 Cloning..."
+    STATUS_WAITING = "💤 Queued..."
+    STATUS_PAUSED = "⛔️ Paused..."
+    STATUS_ARCHIVING = "🔐 Archiving..."
+    STATUS_EXTRACTING = "📂 Extracting..."
+    STATUS_SPLITTING = "✂️ Splitting..."
+    STATUS_CHECKING = "📝 CheckingUp..."
+    STATUS_SEEDING = "🌧 Seeding..."
 
 class EngineStatus:
     STATUS_ARIA = "Aria2c v1.35.0"
@@ -175,41 +175,41 @@ def get_readable_message():
             msg += f"\n<b>┌ Status:</b> <i>{download.status()}</i>"
             if download.status() not in [MirrorStatus.STATUS_SEEDING, MirrorStatus.STATUS_SPLITTING]:
                 msg += f"\n<b>├</b>{get_progress_bar_string(download)} {download.progress()}"
-                msg += f"\n<b>├ Processed:</b> {get_readable_file_size(download.processed_bytes())}\n<b>├ Total Size:</b> {download.size()}"
-                msg += f"\n<b>├ Speed:</b> {download.speed()}"
+                msg += f"\n<b>├ Pʀᴏᴄᴇssᴇᴅ:</b> {get_readable_file_size(download.processed_bytes())}\n<b>├ Total Size:</b> {download.size()}"
+                msg += f"\n<b>├ Sᴘᴇᴇᴅ:</b> {download.speed()}"
                 msg += f"\n<b>├ ETA:</b> {download.eta()}"
-                msg += f"\n<b>├ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                msg += f"\n<b>├ Engine :</b> {download.eng()}"
+                msg += f"\n<b>├ Eʟᴀᴘsᴇᴅ: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<b>├ Eɴɢɪɴᴇ :</b> {download.eng()}"
 
                 if hasattr(download, 'seeders_num'):
                     try:
-                        msg += f"\n<b>├ Seeders:</b> {download.seeders_num()}\n<b>├ Leechers:</b> {download.leechers_num()}"
-                        msg += f"\n<b>├ Sel:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
+                        msg += f"\n<b>├ Sᴇᴇᴅᴇʀs:</b> {download.seeders_num()}\n<b>├ Leechers:</b> {download.leechers_num()}"
+                        msg += f"\n<b>├ Sᴇʟ:</b> <code>/{BotCommands.BtSelectCommand} {download.gid()}</code>"
                     except:
                         pass
                 if download.message.chat.type != 'private':
                     try:
                         chatid = str(download.message.chat.id)[4:]
-                        msg += f'\n<b>├ Added by: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a>'
-                        msg += f"\n<b>└ Stop: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
+                        msg += f'\n<b>├ Aᴅᴅᴇᴅ ʙʏ: </b><a href="https://t.me/c/{chatid}/{download.message.message_id}">{download.message.from_user.first_name}</a>'
+                        msg += f"\n<b>└ Sᴛᴏᴘ: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"                 
                     except:
                         pass
                 else:
-                    msg += f'\n<b>├ Added by:</b> ️{download.message.from_user.first_name}'
-                    msg += f"\n<b>└ Stop: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                    msg += f'\n<b>├ Aᴅᴅᴇᴅ Bʏ:</b> ️{download.message.from_user.first_name}'
+                    msg += f"\n<b>└ Sᴛᴏᴘ: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
 
             elif download.status() == MirrorStatus.STATUS_SEEDING:
-                msg += f"\n<b>├ Size: </b>{download.size()}"
-                msg += f"\n<b>├ Engine:</b> qBittorrent v4.4.2"
-                msg += f"\n<b>├ Speed: </b>{download.upload_speed()}"
-                msg += f"\n<b>├ Uploaded: </b>{download.uploaded_bytes()}"
-                msg += f"\n<b>├ Ratio: </b>{download.ratio()}"
-                msg += f"\n<b>├ Time: </b>{download.seeding_time()}"
-                msg += f"\n<b>├ Elapsed: </b>{get_readable_time(time() - download.message.date.timestamp())}"
-                msg += f"\n<b>└ Stop: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
+                msg += f"\n<b>├ Sɪᴢᴇ: </b>{download.size()}"
+                msg += f"\n<b>├ Eɴɢɪɴᴇ:</b> qBittorrent v4.4.2"
+                msg += f"\n<b>├ Sᴘᴇᴇᴅ: </b>{download.upload_speed()}"
+                msg += f"\n<b>├ Uᴘʟᴏᴀᴅᴇᴅ: </b>{download.uploaded_bytes()}"
+                msg += f"\n<b>├ Rᴀᴛɪᴏ: </b>{download.ratio()}"
+                msg += f"\n<b>├ Tɪᴍᴇ: </b>{download.seeding_time()}"
+                msg += f"\n<b>├ Eʟᴀᴘsᴇᴅ: </b>{get_readable_time(time() - download.message.date.timestamp())}"
+                msg += f"\n<b>└ Sᴛᴏᴘ: </b><code>/{BotCommands.CancelMirror} {download.gid()}</code>"
             else:
-                msg += f"\n<b>├ Engine :</b> {download.eng()}"
-                msg += f"\n<b>└ Size: </b>{download.size()}"
+                msg += f"\n<b>├ Eɴɢɪɴᴇ :</b> {download.eng()}"
+                msg += f"\n<b>└ Sɪᴢᴇ: </b>{download.size()}"
             msg += "\n"
             if STATUS_LIMIT is not None and index == STATUS_LIMIT:
                 break
