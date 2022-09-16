@@ -219,7 +219,8 @@ Type /{BotCommands.HelpCommand} to get a list of available commands.
         sendMarkup(start_string, context.bot, update.message, reply_markup)
     else:
         start_string = f'''
-Sorry bruh, you cannot use me. Deploy your own <b><a href='https://github.com/Adhil-AK/AK-Mirror-Leech-Bot'>AK-Mirror-Leech-Bot</a></b> if you want or join <b><a href='https://t.me/ak_mirror'>AK-MIRROR</a></b>
+Welcome! {TITLE_NAME} is ready for you | I can mirror all your links/Torrents to Google Drive and can leech to Telegram!
+Type /{BotCommands.HelpCommand} to get a list of available commands.
 '''
         sendMarkup(start_string, context.bot, update.message, reply_markup)
 
@@ -281,7 +282,7 @@ def log(update, context):
 
 
 help_string = f'''
-<b><a href='https://github.com/Adhil-AK/AK-Mirror-Leech-Bot'>{TITLE_NAME}</a></b> - The Most Hybrid Telegram MIrror-Leech Bot to Upload Your Files, Links, Torrents, etc... to Google Drive & to Telegram.
+<b><a href='https://github.com/SadKidBGMZ/kr-leech-bot'>{TITLE_NAME}</a></b> - The Most Hybrid Telegram MIrror-Leech Bot to Upload Your Files, Links, Torrents, etc... to Google Drive & to Telegram.
 Choose a help category:
 '''
 
