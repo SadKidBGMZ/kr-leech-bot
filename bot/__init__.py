@@ -625,9 +625,9 @@ except KeyError:
 try:
     TITLE_NAME = getConfig('TITLE_NAME')
     if len(TITLE_NAME) == 0:
-        TITLE_NAME = 'AK-Mirror-Leech-Bot'
+        TITLE_NAME = 'KR-Mirror-Leech-Bot'
 except KeyError:
-    TITLE_NAME = 'AK-Mirror-Leech-Bot'
+    TITLE_NAME = 'KR-Mirror-Leech-Bot'
 try:
     STATS_IMAGE_URL = getConfig("STATS_IMAGE_URL")
     if len(STATS_IMAGE_URL) == 0:
@@ -646,7 +646,7 @@ try:
         raise KeyError
 except:
     START_BTN1_NAME = 'Owner'
-    START_BTN1_URL = 'https://t.me/ak_nh4'
+    START_BTN1_URL = 'https://t.me/tamildubmv4k'
 try:
     START_BTN2_NAME = getConfig('START_BTN2_NAME')
     START_BTN2_URL = getConfig('START_BTN2_URL')
@@ -654,7 +654,7 @@ try:
         raise KeyError
 except:
     START_BTN2_NAME = 'Mirror Group'
-    START_BTN2_URL = 'https://t.me/AK_Mirror'
+    START_BTN2_URL = 'https://t.me/KR_Mirror'
 try:
     FSUB = getConfig('FSUB')
     FSUB = FSUB.lower() == 'true'
@@ -666,14 +666,14 @@ try:
     if len(CHANNEL_USERNAME) == 0:
         raise KeyError
 except KeyError:
-    log_info("CHANNEL_USERNAME not provided! Using default @AK_MIRROR")
+    log_info("CHANNEL_USERNAME not provided! Using default @KR_MIRROR")
     CHANNEL_USERNAME = "AK_MIRROR"
 try:
     CHANNEL_NAME = getConfig("CHANNEL_NAME")
     if len(CHANNEL_NAME) == 0:
-        CHANNEL_NAME = 'AK MIRROR'
+        CHANNEL_NAME = 'KR MIRROR'
 except KeyError:
-    CHANNEL_NAME = 'AK MIRROR'
+    CHANNEL_NAME = 'KR MIRROR'
 try:
     FSUB_CHANNEL_ID = getConfig("FSUB_CHANNEL_ID")
     if len(FSUB_CHANNEL_ID) == 0:
